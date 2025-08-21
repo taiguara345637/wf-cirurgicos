@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barras Fixas para Elementor Pro</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            padding-top: 80px; /* Espaço para barra fixa superior */
+        }
+
+        /* Conteúdo de exemplo */
+        .content {
+            height: 2000px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        /* ===== BARRA FIXA SUPERIOR ===== */
+        .barra-superior {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .barra-superior .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .barra-superior .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .barra-superior .menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .barra-superior .menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .barra-superior .menu a:hover {
+            color: #2563eb;
+        }
+
+        /* ===== BARRA LATERAL ESQUERDA ===== */
+        .barra-lateral {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 250px;
+            background: #1f2937;
+            color: white;
+            z-index: 1000;
+            padding: 20px;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .barra-lateral.ativa {
+            transform: translateX(0);
+        }
+
+        .barra-lateral .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .barra-lateral .menu {
+            list-style: none;
+        }
+
+        .barra-lateral .menu li {
+            margin-bottom: 1rem;
+        }
+
+        .barra-lateral .menu a {
+            color: #d1d5db;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .barra-lateral .menu a:hover {
+            background: #374151;
+            color: white;
+        }
+
+        .toggle-lateral {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            z-index: 1001;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* ===== BARRA INFERIOR ===== */
+        .barra-inferior {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .barra-inferior .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .barra-inferior .info {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .barra-inferior .info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .barra-inferior .cta {
+            background: white;
+            color: #2563eb;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .barra-inferior .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== BARRA DE PROGRESSO ===== */
+        .barra-progresso {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #e5e7eb;
+            z-index: 1001;
+        }
+
+        .barra-progresso .progresso {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* ===== BARRA DE COOKIES ===== */
+        .barra-cookies {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #1f2937;
+            color: white;
+            z-index: 1000;
+            padding: 20px 0;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .barra-cookies.ativa {
+            transform: translateY(0);
+        }
+
+        .barra-cookies .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .barra-cookies .texto {
+            flex: 1;
+        }
+
+        .barra-cookies .botoes {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .barra-cookies .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .barra-cookies .btn-aceitar {
+            background: #10b981;
+            color: white;
+        }
+
+        .barra-cookies .btn-recusar {
+            background: #6b7280;
+            color: white;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .barra-superior .menu {
+                display: none;
+            }
+
+            .barra-inferior .info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .barra-cookies .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Progresso -->
+    <div class="barra-progresso">
+        <div class="progresso"></div>
+    </div>
+
+    <!-- Barra Superior -->
+    <div class="barra-superior">
+        <div class="container">
+            <div class="logo">Sua Marca</div>
+            <ul class="menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Botão para Barra Lateral -->
+    <button class="toggle-lateral" onclick="toggleLateral()">☰</button>
+
+    <!-- Barra Lateral -->
+    <div class="barra-lateral" id="barraLateral">
+        <div class="logo">Menu</div>
+        <ul class="menu">
+            <li><a href="#home">🏠 Início</a></li>
+            <li><a href="#servicos">⚙️ Serviços</a></li>
+            <li><a href="#sobre">ℹ️ Sobre</a></li>
+            <li><a href="#contato">📞 Contato</a></li>
+            <li><a href="#blog">📝 Blog</a></li>
+            <li><a href="#galeria">🖼️ Galeria</a></li>
+        </ul>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="content">
+        <h1>Conteúdo da Página</h1>
+        <p>Role para ver as barras fixas em ação...</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <!-- Barra Inferior -->
+    <div class="barra-inferior">
+        <div class="container">
+            <div class="info">
+                <span>📞 (11) 9999-9999</span>
+                <span>📧 contato@empresa.com</span>
+                <span>🕒 Seg-Sex: 8h-18h</span>
+            </div>
+            <a href="#contato" class="cta">Fale Conosco</a>
+        </div>
+    </div>
+
+    <!-- Barra de Cookies -->
+    <div class="barra-cookies" id="barraCookies">
+        <div class="container">
+            <div class="texto">
+                <strong>🍪 Utilizamos cookies</strong> para melhorar sua experiência em nosso site. 
+                Ao continuar navegando, você concorda com nossa política de cookies.
+            </div>
+            <div class="botoes">
+                <button class="btn btn-aceitar" onclick="aceitarCookies()">Aceitar</button>
+                <button class="btn btn-recusar" onclick="recusarCookies()">Recusar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle da barra lateral
+        function toggleLateral() {
+            const barra = document.getElementById('barraLateral');
+            barra.classList.toggle('ativa');
+        }
+
+        // Barra de progresso
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.progresso').style.width = scrollPercent + '%';
+        });
+
+        // Barra de cookies
+        setTimeout(() => {
+            document.getElementById('barraCookies').classList.add('ativa');
+        }, 2000);
+
+        function aceitarCookies() {
+            document.getElementById('barraCookies').classList.remove('ativa');
+            localStorage.setItem('cookiesAceitos', 'true');
+        }
+
+        function recusarCookies() {
+            document.getElementById('barraCookies').classList.remove('ativa');
+            localStorage.setItem('cookiesAceitos', 'false');
+        }
+
+        // Verificar se cookies já foram aceitos
+        if (localStorage.getItem('cookiesAceitos')) {
+            document.getElementById('barraCookies').style.display = 'none';
+        }
+    </script>
+</body>
+</html> 

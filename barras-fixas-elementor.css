@@ -1,0 +1,359 @@
+/* ===== BARRAS FIXAS PARA ELEMENTOR PRO ===== */
+
+/* ===== 1. BARRA SUPERIOR FIXA ===== */
+.barra-superior-fixa {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
+    z-index: 9999 !important;
+    padding: 15px 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+/* ===== 2. BARRA INFERIOR FIXA ===== */
+.barra-inferior-fixa {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: #2563eb !important;
+    color: white !important;
+    z-index: 9999 !important;
+    padding: 15px 0 !important;
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ===== 3. BARRA LATERAL ESQUERDA ===== */
+.barra-lateral-esquerda {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    height: 100vh !important;
+    width: 250px !important;
+    background: #1f2937 !important;
+    color: white !important;
+    z-index: 9999 !important;
+    padding: 20px !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.barra-lateral-esquerda.ativa {
+    transform: translateX(0) !important;
+}
+
+/* ===== 4. BARRA LATERAL DIREITA ===== */
+.barra-lateral-direita {
+    position: fixed !important;
+    right: 0 !important;
+    top: 0 !important;
+    height: 100vh !important;
+    width: 250px !important;
+    background: #1f2937 !important;
+    color: white !important;
+    z-index: 9999 !important;
+    padding: 20px !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.barra-lateral-direita.ativa {
+    transform: translateX(0) !important;
+}
+
+/* ===== 5. BARRA DE PROGRESSO ===== */
+.barra-progresso-fixa {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 4px !important;
+    background: #e5e7eb !important;
+    z-index: 10000 !important;
+}
+
+.barra-progresso-fixa .progresso {
+    height: 100% !important;
+    background: linear-gradient(90deg, #667eea, #764ba2) !important;
+    width: 0% !important;
+    transition: width 0.3s ease !important;
+}
+
+/* ===== 6. BARRA DE COOKIES ===== */
+.barra-cookies-fixa {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: #1f2937 !important;
+    color: white !important;
+    z-index: 9999 !important;
+    padding: 20px 0 !important;
+    transform: translateY(100%) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.barra-cookies-fixa.ativa {
+    transform: translateY(0) !important;
+}
+
+/* ===== 7. BARRA DE NOTIFICAÇÃO SUPERIOR ===== */
+.barra-notificacao-superior {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: #10b981 !important;
+    color: white !important;
+    z-index: 9999 !important;
+    padding: 10px 0 !important;
+    text-align: center !important;
+    font-weight: bold !important;
+}
+
+/* ===== 8. BARRA DE PROMOÇÃO ===== */
+.barra-promocao-fixa {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: linear-gradient(90deg, #f59e0b, #d97706) !important;
+    color: white !important;
+    z-index: 9999 !important;
+    padding: 12px 0 !important;
+    text-align: center !important;
+    font-weight: bold !important;
+}
+
+/* ===== 9. BARRA DE CONTATO FLUTUANTE ===== */
+.barra-contato-flutuante {
+    position: fixed !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    background: #2563eb !important;
+    color: white !important;
+    padding: 15px 20px !important;
+    border-radius: 50px !important;
+    z-index: 9999 !important;
+    box-shadow: 0 5px 20px rgba(37, 99, 235, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.barra-contato-flutuante:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* ===== 10. BARRA DE MENU MOBILE ===== */
+.barra-menu-mobile {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: #2563eb !important;
+    color: white !important;
+    padding: 15px 25px !important;
+    border-radius: 50px !important;
+    z-index: 9999 !important;
+    box-shadow: 0 5px 20px rgba(37, 99, 235, 0.3) !important;
+    display: flex !important;
+    gap: 20px !important;
+}
+
+.barra-menu-mobile a {
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 1.2rem !important;
+}
+
+/* ===== 11. BARRA DE VOLTAR AO TOPO ===== */
+.barra-voltar-topo {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 50px !important;
+    height: 50px !important;
+    background: #2563eb !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    z-index: 9999 !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.2rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3) !important;
+}
+
+.barra-voltar-topo:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4) !important;
+}
+
+.barra-voltar-topo.visivel {
+    display: flex !important;
+}
+
+/* ===== 12. BARRA DE REDES SOCIAIS ===== */
+.barra-redes-sociais {
+    position: fixed !important;
+    left: 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: white !important;
+    padding: 15px 10px !important;
+    border-radius: 50px !important;
+    z-index: 9999 !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+}
+
+.barra-redes-sociais a {
+    width: 40px !important;
+    height: 40px !important;
+    background: #374151 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    text-decoration: none !important;
+    transition: background 0.3s ease !important;
+}
+
+.barra-redes-sociais a:hover {
+    background: #2563eb !important;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .barra-lateral-esquerda,
+    .barra-lateral-direita {
+        width: 100% !important;
+    }
+    
+    .barra-redes-sociais {
+        display: none !important;
+    }
+    
+    .barra-contato-flutuante {
+        right: 10px !important;
+        bottom: 10px !important;
+        padding: 10px 15px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* ===== CLASSES DE ANIMAÇÃO ===== */
+.animate-slide-in-top {
+    animation: slideInFromTop 0.5s ease-out !important;
+}
+
+.animate-slide-in-bottom {
+    animation: slideInFromBottom 0.5s ease-out !important;
+}
+
+.animate-slide-in-left {
+    animation: slideInFromLeft 0.5s ease-out !important;
+}
+
+.animate-slide-in-right {
+    animation: slideInFromRight 0.5s ease-out !important;
+}
+
+/* ===== ESTILOS PARA ELEMENTOR ===== */
+.elementor-widget-container {
+    position: relative !important;
+}
+
+/* Garantir que as barras fixas fiquem acima do conteúdo */
+.elementor-section-wrap {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* ===== PERSONALIZAÇÃO DE CORES ===== */
+/* Você pode alterar estas cores conforme sua marca */
+
+.barra-superior-fixa {
+    /* background: rgba(255, 255, 255, 0.95) !important; */
+}
+
+.barra-inferior-fixa {
+    /* background: #2563eb !important; */
+}
+
+.barra-lateral-esquerda,
+.barra-lateral-direita {
+    /* background: #1f2937 !important; */
+}
+
+.barra-progresso-fixa .progresso {
+    /* background: linear-gradient(90deg, #667eea, #764ba2) !important; */
+}
+
+.barra-cookies-fixa {
+    /* background: #1f2937 !important; */
+}
+
+.barra-notificacao-superior {
+    /* background: #10b981 !important; */
+}
+
+.barra-promocao-fixa {
+    /* background: linear-gradient(90deg, #f59e0b, #d97706) !important; */
+}
+
+.barra-contato-flutuante,
+.barra-voltar-topo {
+    /* background: #2563eb !important; */
+} 

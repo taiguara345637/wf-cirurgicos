@@ -1,0 +1,423 @@
+/* Carrossel de Produtos - Página Produtos */
+.product-carousel-section {
+    padding: 80px 0;
+    background: linear-gradient(90deg, #113950, #11116b, #021b02, #042203);
+    position: relative;
+}
+
+.product-carousel-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.product-carousel-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.carousel-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-header p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.products-carousel {
+    position: relative;
+    margin-top: 2rem;
+    overflow: hidden;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    animation: autoScroll 60s linear infinite;
+    width: max-content;
+}
+
+/* Acelerar animação do carrossel no mobile */
+@media (max-width: 768px) {
+    .carousel-track {
+        animation: autoScroll 15s linear infinite !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-track {
+        animation: autoScroll 10s linear infinite !important;
+    }
+}
+
+/* Centralizar seção de qualidade no mobile */
+@media (max-width: 768px) {
+    .quality-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 2rem !important;
+    }
+    
+    .quality-text {
+        order: 1 !important;
+        text-align: center !important;
+    }
+    
+    .quality-image {
+        order: 2 !important;
+        text-align: center !important;
+    }
+    
+    .quality-text h2 {
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .quality-text p {
+        text-align: center !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .quality-text .btn {
+        display: block !important;
+        margin: 0 auto !important;
+        width: auto !important;
+        min-width: 200px !important;
+    }
+    
+    .quality-img {
+        max-width: 300px !important;
+        height: auto !important;
+        margin: 0 auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .quality-content {
+        gap: 1.5rem !important;
+    }
+    
+    .quality-text h2 {
+        font-size: 1.6rem !important;
+    }
+    
+    .quality-text p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .quality-text .btn {
+        min-width: 180px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .quality-img {
+        max-width: 250px !important;
+    }
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes autoScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Ajustar animação do carrossel para passar por mais imagens */
+@media (max-width: 768px) {
+    @keyframes autoScroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-200%);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    @keyframes autoScroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-300%);
+        }
+    }
+}
+
+.product-card {
+    flex: 0 0 300px;
+    margin: 0 15px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-card.expanding {
+    animation: expandProduct 0.6s ease-out;
+}
+
+@keyframes expandProduct {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.product-card .product-image {
+    position: relative;
+    height: 200px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+        .product-card .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover .product-img {
+            transform: scale(1.1);
+        }
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-watermark {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: 'Arial', sans-serif;
+}
+
+.product-overlay .product-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-overlay .saiba-mais {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: rgba(16, 185, 129, 0.9);
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.carousel-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-btn:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+.carousel-btn i {
+    color: #10b981;
+    font-size: 1.2rem;
+}
+
+.prev-btn {
+    margin-left: 20px;
+}
+
+.next-btn {
+    margin-right: 20px;
+}
+
+/* Imagem de Qualidade */
+.quality-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background: transparent;
+    mix-blend-mode: multiply;
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.quality-img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .product-carousel-section {
+        padding: 60px 0;
+    }
+    
+    .carousel-header h2 {
+        font-size: 2rem;
+    }
+    
+    .product-card {
+        flex: 0 0 250px;
+        margin: 0 10px;
+    }
+    
+    .carousel-controls {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .product-card {
+        flex: 0 0 200px;
+        margin: 0 8px;
+    }
+    
+    .product-card .product-image {
+        height: 150px;
+    }
+    
+
+} 
+
+/* Regras globais de centralização e responsividade */
+@media (max-width: 768px) {
+    .carousel-header {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    .products-carousel {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    
+    .product-card {
+        flex: 0 0 250px;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-header {
+        padding: 0 10px;
+    }
+    
+    .products-carousel {
+        padding: 0 5px;
+    }
+    
+    .product-card {
+        flex: 0 0 200px;
+        margin: 0 5px;
+    }
+} 
